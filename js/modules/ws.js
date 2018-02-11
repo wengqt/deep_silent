@@ -1,0 +1,30 @@
+/**
+ * Created by weng on 2018/2/10.
+ */
+define(function (require) {
+    var api = require('js/modules/API.js');
+    var url = api.ws;
+    console.log(url);
+    var ws = new WebSocket(url);
+
+
+        ws.addEventListener("message", function (e) {
+            console.log("接收到   ", JSON.parse(e.data))
+
+        })
+        ws.addEventListener("error", function (e) {
+            console.log("ws error   ", (e));
+        })
+        ws.addEventListener("close", function (e) {
+            console.log("ws close   ", e);
+
+        });
+
+
+        //
+        // setInterval(function () {
+        //     ws.send(JSON.stringify({type: 1}));
+        // }, 3000);
+
+    return {ws:ws};
+})
