@@ -1,7 +1,9 @@
 /**
  * Created by weng on 2018/2/10.
+ *
+ * unused file
  */
-function hasUserMedia() {
+/*function hasUserMedia() {
     navigator.getUserMedia = navigator.getUserMedia || navigator.msGetUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
     return !!navigator.getUserMedia;
 }
@@ -69,4 +71,4 @@ function startPeerConnection(stream) {
             yourConnection.setRemoteDescription(answer);
         })
     });
-}
+}*/

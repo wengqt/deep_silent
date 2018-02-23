@@ -79,7 +79,7 @@ define(function (require) {
     }
 
     function sendanswer() {
-        if(yourVideo.src=='http://localhost:63341/deep_silent/index.html'){
+        if(yourVideo.src==window.location){
             yourConnection.createOffer().then(offer => {
                 console.log(offer)
                 yourConnection.setLocalDescription(offer);
@@ -110,6 +110,15 @@ define(function (require) {
     wsocket.ws.addEventListener('message',function (event) {
         var json = JSON.parse(event.data);
         console.log(json);
+        console.log(json.event);
+        if(json.event==1){
+            //另一方掉线
+            window.alert('对方掉线');
+        }
+        if(json.event==2){
+            //另一方不存在
+            alert('另一方不存在');
+        }
         //如果是一个ICE的候选，则将其加入到PeerConnection中，否则设定对方的session描述为传递过来的描述
         if( json.event === "__ice_candidate" ){
             that.pc.addIceCandidate(new RTCIceCandidate(json.data));
@@ -128,6 +137,11 @@ define(function (require) {
 
 
     document.getElementById('call').onclick=function () {
+        makeCakll();
+        makeCakll();
+
+    }
+    function makeCakll() {
         if (hasUserMedia()) {
             navigator.getUserMedia({ video: true, audio: true },
                 (stream) => {
@@ -144,7 +158,6 @@ define(function (require) {
         } else {
             alert("没有userMedia API")
         }
-
     }
 
 })

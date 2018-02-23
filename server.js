@@ -19,10 +19,10 @@ var WebSocketServer = require('ws').Server,
 
     //建立socket连接后的回调函数、
     wss.on('connection', function (ws) {
-        console.log('client connected');
+
 
         // ws.send(JSON.stringify({type: 1}))
-        if(arr.length==1){
+        if(arr[0]!=undefined&&arr[0]!=null){
             arr[1]=ws;
         }else{
             arr[0]=ws;
@@ -30,26 +30,40 @@ var WebSocketServer = require('ws').Server,
 
 
         var index = arr.indexOf(ws);
-
+        console.log('client connected   '+index);
         //接收到客户端的数据
         ws.on('message', function (message) {
             var msg = JSON.parse(message);
             console.log('received (' + index + '): ', msg);
-            var other=1-index;
-            if(arr[other]){
-                arr[other].send(message,function (error) {
-                    if (error) {
-                        console.log('Send message error (' + other + '): ', error);
-                    }
-                })
+            if(msg.event==1){
+                arr[index]=null;
+                var other=1-index;
+                if(arr[other]){
+                    arr[other].send(message,function (error) {
+                        if (error) {
+                            console.log('Send message error (' + other + '): ', error);
+                        }
+                    })
 
+                }
             }else{
-                arr[index].send(JSON.stringify({type: 2}),function (error) {
-                    if (error) {
-                        console.log('Send message error (' + other + '): ', error);
-                    }
-                })
+                var other=1-index;
+                if(arr[other]){
+                    arr[other].send(message,function (error) {
+                        if (error) {
+                            console.log('Send message error (' + other + '): ', error);
+                        }
+                    })
+
+                }else{
+                    arr[index].send(JSON.stringify({event: 2}),function (error) {
+                        if (error) {
+                            console.log('Send message error (' + other + '): ', error);
+                        }
+                    })
+                }
             }
+
 
 
 
