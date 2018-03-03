@@ -41,47 +41,18 @@
     <script src="assets/starrr.js"></script>
 
     <script>
-        $(function(){
-            $('#dowebok').fullpage({
-                sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
-                onLeave:function (index,nextIndex,direction) {
 
-                    if(nextIndex==2){
-                        var $pic_left = $('#pic1-left');
-                        var $pic_right = $('#pic2-right');
-                        var $word = $('#word1');
-
-                        $pic_left.addClass('animated bounceInLeft');
-                        $pic_right.addClass('animated bounceInRight');
-                        $word.addClass('animated bounceInUp');
-
-
-                    }else if(nextIndex==3){
-                        var $left = $('#pic3-left');
-                        var $right = $('#word2');
-                        $left.addClass('animated bounceInLeft')
-                        $right.addClass('animated bounceInRight')
-                    }
-                }
-            });
-            $('.starrr').starrr({
-                change: function(e, value){
-                    alert('new rating is ' + value)
-                }
-            })
-
-        });
     </script>
 </head>
 <body>
-    <header class="my-nav">
+    <header class="my-nav" id="nav-bar">
         <ul>
             <li class="active">111</li>
             <li>222</li>
-            <li>333</li>
+            <!--<li>333</li>-->
         </ul>
     </header>
-    <section id="zone3">
+    <section id="zone0">
         <div id="dowebok">
             <div class="section">
                 <div class="am-g two-boxes" >
@@ -124,6 +95,49 @@
 
     </section>
 
+    <section id="zone1">
+        <div id="dowebok2">
+            <div class="section">
+                <div class="am-g two-boxes" >
+                    <div class="am-u-sm-6 video-box">视频</div>
+                    <div class="am-u-sm-6 video-box">文字（唇语翻译结果）</div>
+                </div>
+                <div class="bottom-options ">
+                    <div class="btn-box"> <div class="btn-inner">开始摄像</div> </div>
+                    <div class="btn-box"> <div class="btn-inner">开始测试</div> </div>
+                    <div class="starrr"></div>
+                    <div class="btn-box"> <div class="btn-inner">打分反馈</div> </div>
+                </div>
+
+
+            </div>
+            <div class="section">
+                <div class="am-g two-boxes" style="height: 30vh">
+                    <div class="am-u-sm-6" id="pic4-left">图片</div>
+                    <div class="am-u-sm-6 " id="pic5-right">高光图</div>
+                </div>
+                <div class="long-words-box" id="word3">
+                    111111111
+                </div>
+                <!--<div class="slide"><h3>第二屏的第一屏</h3></div>-->
+                <!--<div class="slide"><h3>第二屏的第二屏</h3></div>-->
+                <!--<div class="slide"><h3>第二屏的第三屏</h3></div>-->
+            </div>
+            <div class="section">
+                <div class="am-g two-boxes" style="height: 30vh">
+                    <div class="am-u-sm-6" id="pic6-left">图片</div>
+                    <div class="am-u-sm-6"><div id="word4">介绍介绍2222222222222</div> </div>
+
+                </div>
+            </div>
+            <!--<div class="section">-->
+            <!--<h3>第四屏</h3>-->
+            <!--<p>这是最后一屏</p>-->
+            <!--</div>-->
+        </div>
+
+    </section>
+
 <!--在这里编写你的代码-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -135,5 +149,6 @@
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
 <script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
