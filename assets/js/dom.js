@@ -3,18 +3,22 @@
  */
 
 
-const dom0=` <div id="dowebok">
+const dom0 = ` <div id="dowebok">
+                <div class="covervid-wrapper section">
+                    <video class="covervid-video" loop="loop" data-autoplay width="100%" >
+                        <source src="assets/video/test.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>`
+
+
+
+const dom1 = ` <div id="dowebok">
                 <div class="section"></div></div>`
 
 
 
-
-const dom1=` <div id="dowebok">
-                <div class="section"></div></div>`
-
-
-
-const dom2=`<div id="dowebok">
+const dom2 = `<div id="dowebok">
                 <div class="section">
                 <div class="am-g two-boxes" >
                     <div class="am-u-sm-6 video-box">视频</div>
@@ -51,7 +55,7 @@ const dom2=`<div id="dowebok">
             </div>`
 
 
-const dom3=`<div id="dowebok">
+const dom3 = `<div id="dowebok">
                <div class="section">
                 <div class="am-g two-boxes" >
                     <div class="am-u-sm-6 video-box">视频22222</div>

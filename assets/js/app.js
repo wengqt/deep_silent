@@ -107,9 +107,6 @@ function switchPages(lastIndex,nextIndex) {
 }
 
 
-
-
-
 $(function(){
   //注册全屏幕滑动
 
@@ -143,3 +140,4 @@ function buildFullpage() {
     }
   });
 }
+
