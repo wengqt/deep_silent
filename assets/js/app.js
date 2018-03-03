@@ -13,12 +13,7 @@
 
 
 
-    //注册打分工具
-    $('.starrr').starrr({
-      change: function(e, value){
-        alert('new rating is ' + value)
-      }
-    })
+
 
 
 
@@ -121,22 +116,64 @@ function buildFullpage() {
     sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
     onLeave:function (index,nextIndex,direction) {
 
-      if(nextIndex==2){
-        var $pic_left = $('#pic1-left');
-        var $pic_right = $('#pic2-right');
-        var $word = $('#word1');
+      if(pageIndex==0){
+        $(function () {
+          function videoPlay() {
+            $('video').each(function (i, e) {
+              $('video').get(i).play();
+            });
+          }
+          videoPlay();
+        });
 
-        $pic_left.animateCss('bounceInLeft');
-        $pic_right.animateCss('bounceInRight');
-        $word.animateCss('bounceInUp');
+      }else if(pageIndex==1){
+//nextIndex从1开始计算
+        if(nextIndex==1){
+
+          $('.side-title').animateCss('bounceInLeft');
+          $('.content-title').animateCss('bounceInUp');
+          $('#word1').animateCss('bounceInUp');
+        }else if(nextIndex==2){
+          $('.side-title').animateCss('bounceInLeft');
+          $('.btn-box').animateCss('bounceInUp');
+
+        }else if(nextIndex===3){
+          $('.side-title').animateCss('bounceInLeft');
+          $('.am-u-sm-3').animateCss('bounceInLeft');
+          $('.am-u-sm-1').animateCss('bounceInLeft');
+          $('.am-u-sm-4').animateCss('bounceInRight');
 
 
-      }else if(nextIndex==3){
-        var $left = $('#pic3-left');
-        var $right = $('#word2');
-        $left.animateCss('bounceInLeft')
-        $right.animateCss('bounceInRight')
+        }
+      }else{
+
+        //注册打分工具
+        $('.starrr').starrr({
+          change: function(e, value){
+            alert('new rating is ' + value)
+          }
+        })
+
+
+        if(nextIndex==2){
+          var $pic_left = $('#pic1-left');
+          var $pic_right = $('#pic2-right');
+          var $word = $('#word1');
+
+          $pic_left.animateCss('bounceInLeft');
+          $pic_right.animateCss('bounceInRight');
+          $word.animateCss('bounceInUp');
+
+
+        }else if(nextIndex==3){
+          var $left = $('#pic3-left');
+          var $right = $('#word2');
+          $left.animateCss('bounceInLeft')
+          $right.animateCss('bounceInRight')
+        }
       }
+
+
     }
   });
 }
