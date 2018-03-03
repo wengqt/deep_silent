@@ -1,7 +1,20 @@
 /**
  * Created by weng on 2018/3/3.
  */
-const dowebok=`<div id="dowebok">
+
+
+const dom0=` <div id="dowebok">
+                <div class="section"></div></div>`
+
+
+
+
+const dom1=` <div id="dowebok">
+                <div class="section"></div></div>`
+
+
+
+const dom2=`<div id="dowebok">
                 <div class="section">
                 <div class="am-g two-boxes" >
                     <div class="am-u-sm-6 video-box">视频</div>
@@ -38,7 +51,7 @@ const dowebok=`<div id="dowebok">
             </div>`
 
 
-const dowebok2=`<div id="dowebok">
+const dom3=`<div id="dowebok">
                <div class="section">
                 <div class="am-g two-boxes" >
                     <div class="am-u-sm-6 video-box">视频22222</div>

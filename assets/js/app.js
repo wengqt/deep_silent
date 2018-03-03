@@ -80,21 +80,27 @@
 
 function switchPages(lastIndex,nextIndex) {
   console.log(lastIndex,nextIndex)
+  if(lastIndex===nextIndex){
 
-  var $dom = $('#zone0');
+  }else{
+    var $dom = $('#zone0');
 
-  var nav = document.getElementById('nav-bar').children[0];
-  var lastbar =nav.children[lastIndex];
-  var nextbar =nav.children[nextIndex];
-  lastbar.className='';
-  nextbar.className='active';
-  window.pageIndex=nextIndex;
+    var nav = document.getElementById('nav-bar').children[0];
+    var lastbar =nav.children[lastIndex];
+    var nextbar =nav.children[nextIndex];
+    lastbar.className='';
+    nextbar.className='active';
+    window.pageIndex=nextIndex;
 
-  $dom.animateCss('bounceInUp');
-  $('#dowebok').fullpage.destroy('all');
-  $dom.html(dowebok2);
+    $dom.animateCss('bounceInUp');
+    $('#dowebok').fullpage.destroy('all');
+    $dom.html(eval('dom'+nextIndex.toString()));
 
-  buildFullpage();
+
+    buildFullpage();
+  }
+
+
 
 
 
